@@ -18,13 +18,12 @@ class AnswersController < ApplicationController
     end
 
     def index
-        if current_user
-            @answers = current_user.answers
-        end
+        @answers = current_user.answers.all
     end
 
     def show
         @answer = Answer.find_by(params[:id])
+        @question = Question.find_by(params[:question_id])
     end
 
     private
