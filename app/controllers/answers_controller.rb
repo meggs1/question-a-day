@@ -4,6 +4,9 @@ class AnswersController < ApplicationController
         answer = Answer.new(answer_params)
     end
 
+    def index
+    end
+
     private
 
     def answer_params

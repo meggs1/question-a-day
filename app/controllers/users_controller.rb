@@ -15,6 +15,7 @@ class UsersController < ApplicationController
     end
 
     def show # show all of user's answers
+        @user = User.find_by(params[:id])
     end
 
     private
