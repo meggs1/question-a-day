@@ -2,7 +2,9 @@
 
 <%= link_to "Sign up", signup_url %> 
 <%= link_to "Log in", login_url %> 
-
+<% if current_user %>
+<%= link_to "My page", user_path(current_user) %>
+<% end %>
 
 
 

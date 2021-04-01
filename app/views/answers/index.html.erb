@@ -1,5 +1,5 @@
 <% @answers.each do |answer| %>
-    <%= answer.question.name %>
+    <%= link_to "#{answer.question.name}", question_url(answer.question_id) %> 
     <%= answer.content %>
     <br>
 <%end%>
