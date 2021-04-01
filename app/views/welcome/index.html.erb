@@ -1,6 +1,11 @@
 <h1>Welcome</h1>
 
-<a class="navbar-brand" href="<%= new_user_url %>"/>Sign Up</a>
+<% if current_user %>
+    <%= button_to "Logout", logout_url, method:"delete" %>
+<%else%>
+    <%= link_to "Sign up", signup_url %> 
+    <%= link_to "Log in", login_url %> 
+<%end%>
 
 
 
