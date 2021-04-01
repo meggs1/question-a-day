@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     def create # dont render new form redirect
         user = User.create(user_params)
         if user.save
+            session[:user_id] = user.id
             redirect_to user_path(user)
         else
             redirect_to new_user_path
@@ -21,5 +22,4 @@ class UsersController < ApplicationController
     def user_params
         params.require(:user).permit(:name, :username, :password)
     end
-
 end
