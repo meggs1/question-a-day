@@ -1,1 +1,4 @@
 <h1><%= @tag.name %></h1>
+<% @questions.each do |question| %>
+    <%= question.name %>
+<% end %>
