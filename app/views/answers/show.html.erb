@@ -2,4 +2,5 @@
 <h1><%= @answer.content %><h1>
 
 <%= link_to "Edit Answer", edit_answer_path(@answer) %>
+<%= link_to "Delete Answer", answer_path, method:"delete" %>
 <%= link_to "All Answers", answers_path %>

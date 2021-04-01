@@ -1,5 +1,5 @@
 class AnswersController < ApplicationController
-    before_action :find_answer, only: [:show, :edit, :update]
+    before_action :find_answer, only: [:show, :edit, :update, :destroy]
 
     def new
         if params[:question_id] && !question.exists?(params[:question_id])
@@ -36,7 +36,9 @@ class AnswersController < ApplicationController
         end
     end
 
-    def delete
+    def destroy
+        @answer.destroy
+        redirect_to answers_path
     end
 
     private
@@ -48,5 +50,4 @@ class AnswersController < ApplicationController
     def find_answer
         @answer = Answer.find_by_id(params[:id])
     end
-
 end
