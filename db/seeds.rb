@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Question.destroy_all
+Tag.destroy_all
 
 def get_questions
     site = "https://www.marcandangel.com/2011/03/14/365-thought-provoking-questions-to-ask-yourself-this-year/"
@@ -21,3 +22,14 @@ def get_questions
 end
 
 get_questions
+
+
+Tag.create(name: "Life")
+Tag.create(name: "Past")
+Tag.create(name: "Present")
+Tag.create(name: "Future")
+Tag.create(name: "Beliefs")
+Tag.create(name: "Philosophy")
+Tag.create(name: "Lessons")
+
+
