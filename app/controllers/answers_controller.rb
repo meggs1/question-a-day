@@ -22,8 +22,17 @@ class AnswersController < ApplicationController
     end
 
     def show
-        @answer = Answer.find_by(params[:id])
-        @question = @answer.question.name
+        @answer = Answer.find_by_id(params[:id])
+    end
+
+    def edit
+        @answer = Answer.find_by_id(params[:id])
+    end
+
+    def update
+    end
+
+    def delete
     end
 
     private

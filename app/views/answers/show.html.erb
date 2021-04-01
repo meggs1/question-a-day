@@ -1,6 +1,6 @@
-<h1><%= @question %><h1>
+<h1><%= @answer.question.name %><h1>
 <h1><%= @answer.content %><h1>
 
 
-
+<%= link_to "Edit Answer", edit_answer_path(@answer) %>
 <%= link_to "All Answers", answers_path %>
