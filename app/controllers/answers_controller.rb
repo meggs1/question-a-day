@@ -1,4 +1,5 @@
 class AnswersController < ApplicationController
+    before_action :find_answer, only: [:show, :edit, :update]
 
     def new
         if params[:question_id] && !question.exists?(params[:question_id])
@@ -22,14 +23,17 @@ class AnswersController < ApplicationController
     end
 
     def show
-        @answer = Answer.find_by_id(params[:id])
     end
 
     def edit
-        @answer = Answer.find_by_id(params[:id])
     end
 
     def update
+        if @answer.update(answer_params)
+          redirect_to answer_path(@answer)
+        else
+          render :edit
+        end
     end
 
     def delete
@@ -39,6 +43,10 @@ class AnswersController < ApplicationController
 
     def answer_params
         params.require(:answer).permit(:user_id, :question_id, :content)
+    end
+
+    def find_answer
+        @answer = Answer.find_by_id(params[:id])
     end
 
 end
