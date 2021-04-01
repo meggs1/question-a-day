@@ -1,3 +1,4 @@
+require 'date'
 class Question < ActiveRecord::Base
     has_many :answers
     has_many :question_tags
@@ -6,4 +7,5 @@ class Question < ActiveRecord::Base
 
     #validates new_question (user can only answer a question they haven't answered yet)
     #validates who, what, where, when or why
+
 end
