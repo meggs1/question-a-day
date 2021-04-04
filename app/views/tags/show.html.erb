@@ -2,3 +2,6 @@
 <% @questions.each do |question| %>
     <%= link_to "#{question.name}", question_path(question) %>
 <% end %>
+
+<br>
+<%= link_to "All Tags", tags_path %>
