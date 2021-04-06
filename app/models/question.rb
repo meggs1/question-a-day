@@ -14,4 +14,6 @@ class Question < ActiveRecord::Base
             true
         end
     end
+
+    
 end

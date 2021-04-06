@@ -1,4 +1,5 @@
 <h1>Welcome <%= @user.name %></h1><br>
+<%= link_to "#{todays_question.name}", question_path(todays_question.id)%><br>
 <%= link_to "Questions ", questions_path %>
 <%= link_to "Create a New Question ", new_question_path %>
 <%= link_to "Tags ", tags_path %>
