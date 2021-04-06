@@ -3,15 +3,15 @@ class User < ActiveRecord::Base
     has_many :answers
     has_many :comments, through: :answers
 
-    validates :name, presence: true
-    validates :email, presence: true
+    validates :username, presence: true
+    validates :email, presence: true, uniqueness: true
     validates :password, presence: true
 
-    def self.from_omniauth(response)
-        User.find_or_create_by(uid: response[:uid], provider: response[:provider]) do |u|
-            u.name = response[:info][:name]
-            u.email = response[:info][:email]
-            u.password = SecureRandom.hex(15)
+    def self.from_omniauth(auth)
+        self.find_or_create_by(provider: auth[:provider], uid: auth[:uid]) do |u|
+            u.username = auth[:info][:name]
+            u.email = auth[:info][:email]
+            u.password = SecureRandom.hex(20)
         end
     end
 end

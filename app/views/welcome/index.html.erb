@@ -1,8 +1,11 @@
 <h1>Welcome</h1>
-<%= link_to "Sign up", signup_url %> 
-<%= link_to "Log in", login_url %> 
+
 <% if current_user %>
 <%= link_to "My page", user_path(current_user) %>
+<%else%>
+<%= link_to "Sign up", signup_url %> 
+<%= link_to "Log in", login_url %> 
+<%= button_to "Log In With Google", '/auth/google_oauth2' %>
 <% end %>
 
 
