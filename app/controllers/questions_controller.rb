@@ -20,7 +20,9 @@ class QuestionsController < ApplicationController
 
     def show
         @question = Question.find(params[:id])
-        @answer = @question.answers.find_or_create_by(user_id: current_user.id)
+        @user_answer = @question.answers.find_by(user_id: current_user.id)
+        @answer = @question.answers.build(user_id: current_user.id)
+        # @answer = @question.answers.find_or_create_by(user_id: current_user.id)
     end
 
     def edit
