@@ -7,6 +7,7 @@ class Question < ActiveRecord::Base
 
     #validates new_question (user can only answer a question they haven't answered yet)
     #validates who, what, where, when or why
+    
     def is_answered?
         if self.answers.blank? || self.answers.nil?
             false
@@ -14,6 +15,5 @@ class Question < ActiveRecord::Base
             true
         end
     end
-
     
 end

@@ -5,3 +5,5 @@
 <%end%>
 
 <%= render partial: 'answers/form', locals: {answer: @answer} %>
+
+<%= link_to "Edit Question", edit_question_path(@question) %>
