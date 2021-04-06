@@ -1,18 +1,18 @@
 class QuestionsController < ApplicationController
 
-    def new
-        @question = Question.new
-        @tags = Tag.all
-    end
+    # def new
+    #     @question = Question.new
+    #     @tags = Tag.all
+    # end
 
-    def create
-        question = Question.create(question_params)
-        if question.save
-            redirect_to question_path(question)
-        else
-            render :new
-        end
-    end
+    # def create
+    #     question = Question.create(question_params)
+    #     if question.save
+    #         redirect_to question_path(question)
+    #     else
+    #         render :new
+    #     end
+    # end
 
     def index
         @questions = Question.all
