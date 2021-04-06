@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
     has_many :answers
     has_many :comments, through: :answers
 
-    validates :username, presence: true
+    validates :name, presence: true
     validates :email, presence: true, uniqueness: true
     validates :password, presence: true
 

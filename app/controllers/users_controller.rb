@@ -4,7 +4,7 @@ class UsersController < ApplicationController
         @user= User.new
     end
 
-    def create # dont render new form redirect
+    def create
         user = User.create(user_params)
         if user.save
             session[:user_id] = user.id
