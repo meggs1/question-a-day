@@ -13,6 +13,6 @@
 <%end%>
 <br>
 
-<% if current_user.admin = true %>
+<% if current_user.admin %>
     <%= link_to "Edit Question", edit_question_path(@question) %>
 <%end%>

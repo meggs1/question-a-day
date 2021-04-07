@@ -7,3 +7,8 @@
 
 <br>
 <%= link_to "All Tags", tags_path %>
+
+<% if current_user.admin %>
+    <%= link_to "Edit Tag", edit_tag_path(@tag) %>
+    <%= link_to "Delete Tag", tag_path(@tag), method: :delete %><br>
+<%end%>
