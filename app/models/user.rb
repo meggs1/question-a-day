@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
     validates :email, uniqueness: true
 
     def self.from_omniauth(auth)
-        self.find_or_create_by(uid: auth['uid']) do |u|
+        self.find_or_create_by(provider: auth['provider'], uid: auth['uid']) do |u|
             u.name = auth['info']['name']
             u.email = auth['info']['email']
             u.password = SecureRandom.hex(20)

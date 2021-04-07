@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_06_054905) do
+ActiveRecord::Schema.define(version: 2021_04_07_020113) do
 
   create_table "answers", force: :cascade do |t|
     t.string "content"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 2021_04_06_054905) do
     t.string "uid"
     t.string "provider"
     t.string "email"
+    t.boolean "admin", default: false
   end
 
 end

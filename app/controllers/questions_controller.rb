@@ -15,7 +15,6 @@ class QuestionsController < ApplicationController
     # end
 
     def index
-        byebug
         @questions = Question.all
     end
 

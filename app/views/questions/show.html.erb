@@ -12,4 +12,7 @@
     <%= render partial: 'answers/form', locals: {answer: @answer} %>
 <%end%>
 <br>
-<%= link_to "Edit Question", edit_question_path(@question) %>
+
+<% if current_user.admin = true %>
+    <%= link_to "Edit Question", edit_question_path(@question) %>
+<%end%>
