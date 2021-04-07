@@ -1,4 +1,6 @@
 class TagsController < ApplicationController
+    before_action :find_tag, only: [:show, :edit, :destroy]
+
     def new
         @tag = Tag.new
     end
@@ -17,12 +19,10 @@ class TagsController < ApplicationController
     end
     
     def show
-        @tag = Tag.find_by_id(params[:id])
         @questions = @tag.questions
     end
 
     def edit
-        @tag = Tag.find_by_id(params[:id])
     end
 
     def update
@@ -35,7 +35,6 @@ class TagsController < ApplicationController
     end
 
     def destroy
-        @tag = Tag.find(params[:id])
         if @tag
           @tag.destroy
           redirect_to tags_path
@@ -48,6 +47,10 @@ class TagsController < ApplicationController
         
     def tag_params
         params.require(:tag).permit(:name)
+    end
+
+    def find_tag
+        @tag = Tag.find(params[:id])
     end
 
 end
