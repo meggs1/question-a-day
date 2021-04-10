@@ -2,10 +2,12 @@ Rails.application.routes.draw do
   get 'welcome/index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  resources :users do
+  # resources :users do
+  #   resources :answers
+  # end
+  resources :questions do 
     resources :answers
   end
-  resources :questions
   resources :answers
   resources :tags
   
@@ -17,7 +19,7 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
 
-  get '/popular-questions' => 'questions#popular_questions'
+  get '/popular_questions' => 'questions#top_questions'
   
   get '/auth/:provider/callback' => 'sessions#omniauth'
 

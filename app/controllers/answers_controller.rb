@@ -2,15 +2,13 @@ class AnswersController < ApplicationController
     before_action :find_answer, only: [:show, :edit, :update, :destroy]
 
     def new
-        if params[:question_id] && !question.exists?(params[:question_id])
-            redirect_to questions_path
-          else
-            @answer = Answer.new(answer_params)
+        if params[:question_id] && find_question
+            @answer = @question.answers.build
         end
     end
     
     def create
-       @answer = Answer.new(answer_params)
+       @answer = current_user.answers.build(answer_params)
         if @answer.save
             redirect_to answer_path(@answer)
         else
@@ -19,13 +17,22 @@ class AnswersController < ApplicationController
     end
 
     def index
-        @answers = current_user.answers.all
+        if params[:question_id] && find_question
+            if @question.nil?
+            redirect_to root_path
+            else
+                @answers = @question.answers.all
+            end
+        end
     end
 
     def show
     end
 
     def edit
+        if params[:question_id] && find_question
+            @answer = @question.answers.find_by(id: params[:id])
+        end
     end
 
     def update
@@ -49,5 +56,9 @@ class AnswersController < ApplicationController
 
     def find_answer
         @answer = Answer.find_by_id(params[:id])
+    end
+
+    def find_question
+        @question = Question.find_by_id(params[:question_id])
     end
 end

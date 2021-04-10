@@ -1,5 +1,5 @@
+<h1><%= @question.name%></h1>
 <% @answers.each do |answer| %>
-    <%= link_to "#{answer.question.name}", question_url(answer.question_id) %> 
-    <%= answer.content %>
+    "<%= answer.content %>" - <%= answer.user.name %>
     <br>
 <%end%>
