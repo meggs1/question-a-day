@@ -38,6 +38,10 @@ class QuestionsController < ApplicationController
         end
     end
 
+    def popular_questions
+        @popular_questions = Question.most_answered
+    end
+
     private
 
     def question_params

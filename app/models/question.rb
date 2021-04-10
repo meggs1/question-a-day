@@ -10,7 +10,7 @@ class Question < ActiveRecord::Base
     #validates who, what, where, when or why
 
     def self.most_answered
-        @top_questions = joins(:answers).group(:question_id).order("count(question_id) desc").limit(3)
+        @popular_questions = joins(:answers).group(:question_id).order("count(question_id) desc").limit(5)
     end
 
     def is_answered?
