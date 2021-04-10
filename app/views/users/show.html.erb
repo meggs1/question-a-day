@@ -1,6 +1,14 @@
 <h1>Today's Question is: <%= "#{todays_question.name}" %></h1><br>
 <%= link_to "Answer todays question", question_path(todays_question.id)%><br>
 
+<h2>Our most popular questions:</h2>
+<% @top_questions.each do |question| %>
+    <ul>
+        <li><%=link_to "#{question.name}", question_path(question) %></li>
+    </ul>
+<%end%>
+
+
 <%= link_to "All Questions", questions_path %><br>
 <%= link_to "Tags ", tags_path %><br>
 <%= link_to "Your Answers ", user_answers_path(@user) %><br>

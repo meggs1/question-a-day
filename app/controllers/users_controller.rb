@@ -16,6 +16,7 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find_by(params[:id])
+        @top_questions = Question.most_answered
     end
 
     private
