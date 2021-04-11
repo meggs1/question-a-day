@@ -1,2 +1,6 @@
 <h1><%= @question.name %></h1>
-<%= render partial: 'form', locals: {answer: @answer} %>
+<% if @question.users.include? current_user %>
+    <%= render partial: 'form', locals: {answer: @answer} %>
+<%else%>
+    <p>You've already answered this question </p>
+<%end%>

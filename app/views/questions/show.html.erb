@@ -7,7 +7,7 @@
 <% if @user_answer %>
     <p>You have already answered this question, you wrote: </p>
     <%= "#{@user_answer.content}" %><br>
-    <%= link_to "Change Answer", edit_question_answer_path(@user_answer.question, @user_answer) %>
+    <%= link_to "Change Answer", edit_answer_path(@user_answer) %>
 <%else%>
     <%= render partial: 'answers/form', locals: {answer: @answer} %>
 <%end%>
