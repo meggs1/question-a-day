@@ -15,10 +15,10 @@ class Question < ActiveRecord::Base
 
     def self.todays_question
         questions = self.all
-        questions[Date.today.hash % questions.size]
+        date = Date.today.yday
+        questions[date % questions.size]
     end
     
-
     def is_answered?
         if self.answers.blank? || self.answers.nil?
             false

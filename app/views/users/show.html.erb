@@ -1,9 +1,9 @@
 <h1>Today's Question is: <%= "#{@todays_question.name}" %></h1><br>
 
 <% if @todays_question.users.include? current_user %>
-    <p>You've already answered this question!</p>
-    <%= @user_answer.content %>
-    <%= link_to "Edit todays question", edit_question_answer_path(@todays_question, @user_answer)%><br>
+    <p>You've already answered this question! You said: </p>
+    <%= @user_answer.content %><br>
+    <%= link_to "Edit answer", edit_question_answer_path(@todays_question, @user_answer)%><br>
     <%else%>
     <%= link_to "Answer todays question", new_question_answer_path(@todays_question)%><br>
 <% end %>
