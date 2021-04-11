@@ -16,7 +16,7 @@ class Question < ActiveRecord::Base
     def self.todays_question #add extra day for leap year to seed
         questions = self.all
         date = Date.today.yday
-        questions[date % questions.size]
+        questions[(date - 1) % questions.size]
     end
     
     def is_answered?

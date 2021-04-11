@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
 
-  get '/popular_questions' => 'questions#top_questions'
+  get '/popular-questions' => 'questions#popular_questions'
   
   get '/auth/:provider/callback' => 'sessions#omniauth'
 
