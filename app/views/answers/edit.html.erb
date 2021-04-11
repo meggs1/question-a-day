@@ -2,5 +2,5 @@
 
 <%= render partial: 'form', locals: {answer: @answer} %>
 
-<%= link_to "Back to Answers", answers_path %>
+<%= link_to "All Answers ", question_answers_path(@answer.question.id) %>
 <%= link_to "Delete Answer ", answer_path, method:"delete" %>

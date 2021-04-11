@@ -1,6 +1,7 @@
 <h1><%= @question.name %></h1>
-<% if @question.users.include? current_user %>
+<% if !@question.users.include? current_user %>
     <%= render partial: 'form', locals: {answer: @answer} %>
 <%else%>
     <p>You've already answered this question </p>
+    <%= link_to "Home", root_path %>
 <%end%>

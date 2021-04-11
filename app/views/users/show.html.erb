@@ -1,5 +1,10 @@
 <h1>Today's Question is: <%= "#{todays_question.name}" %></h1><br>
-<%= link_to "Answer todays question", new_question_answer_path(todays_question)%><br>
+<% if !todays_question.users.include?(current_user) %>
+    <%= link_to "Answer todays question", new_question_answer_path(todays_question)%><br>
+<%else%>
+    <p>You've already answered this question!</p>
+    <%= link_to "edit todays question", edit_question_answer_path(todays_question)%><br>
+<%end%>
 
 <%= link_to "All Questions", questions_path %><br>
 <%= link_to "Tags ", tags_path %><br>
