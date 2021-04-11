@@ -22,7 +22,6 @@ class QuestionsController < ApplicationController
         @question = Question.find(params[:id])
         @user_answer = @question.answers.find_by(user_id: current_user.id)
         @answer = @question.answers.build(user_id: current_user.id)
-        # @answers = @question.answers.all
     end
 
     def edit
