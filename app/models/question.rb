@@ -13,6 +13,12 @@ class Question < ActiveRecord::Base
         @popular_questions = joins(:answers).group(:question_id).order("count(question_id) desc").limit(5)
     end
 
+    def self.todays_question
+        questions = self.all
+        questions[Date.today.hash % questions.size]
+    end
+    
+
     def is_answered?
         if self.answers.blank? || self.answers.nil?
             false
