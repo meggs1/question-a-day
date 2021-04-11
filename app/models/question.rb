@@ -10,7 +10,7 @@ class Question < ActiveRecord::Base
     #validates who, what, where, when or why
 
     def self.most_answered
-        @popular_questions = joins(:answers).group(:question_id).order("count(question_id) desc").limit(5)
+        all.joins(:answers).group("question_id").order("count(question_id) desc").limit(5)
     end
 
     def self.todays_question #add extra day for leap year to seed

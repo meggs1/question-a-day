@@ -1,6 +1,6 @@
 <h2>Our most popular questions:</h2>
 <% @popular_questions.each do |question| %>
     <ul>
-        <li><%=link_to "#{question.name}", question_path(question) %></li>
+        <li><%=link_to "#{question.name}", question_answers_path(question) %></li>
     </ul>
 <%end%>
