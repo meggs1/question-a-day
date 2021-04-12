@@ -1,6 +1,6 @@
 class AnswersController < ApplicationController
     before_action :find_answer, only: [:show, :edit, :update, :destroy]
-
+    before_action :find_question, only: [:index, :edit]
     def new
         if params[:question_id] && find_question
             @answer = @question.answers.build
@@ -17,7 +17,7 @@ class AnswersController < ApplicationController
     end
 
     def index
-        if params[:question_id] && find_question
+        if params[:question_id]
             if @question.nil?
             redirect_to root_path
             else
@@ -30,7 +30,7 @@ class AnswersController < ApplicationController
     end
 
     def edit
-        if params[:question_id] && find_question
+        if params[:question_id]
             @answer = @question.answers.find_by(id: params[:id])
         end
     end
