@@ -1,4 +1,4 @@
-<h1>Today's Question is: <%= "#{@todays_question.name}" %></h1><br>
+<h1><%= "#{@todays_question.name}" %></h1><br>
 
 <% if @todays_question.users.include? current_user %>
     <p>You've already answered this question! You said: </p>

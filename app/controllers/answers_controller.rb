@@ -1,5 +1,4 @@
 class AnswersController < ApplicationController
-    before_action :require_login
     before_action :find_answer, only: [:show, :edit, :update, :destroy]
 
     def new
