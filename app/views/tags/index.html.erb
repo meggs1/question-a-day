@@ -4,5 +4,6 @@
     </ul>
 <%end%>
 
-
-<%= link_to "Add a New Tag", new_tag_path %>
+<% if current_user.admin %>
+    <%= link_to "Add a New Tag", new_tag_path %>
+<%end%>

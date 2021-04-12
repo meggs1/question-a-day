@@ -7,9 +7,3 @@
     <%else%>
     <%= link_to "Answer todays question", new_question_answer_path(@todays_question)%><br>
 <% end %>
-
-<%= link_to "All Questions", questions_path %><br>
-<%= link_to "Popular Questions", popular_questions_path %><br>
-<%= link_to "Tags ", tags_path %><br>
-
-<%=link_to "Log Out", :controller => 'sessions', :action => 'destroy' %>

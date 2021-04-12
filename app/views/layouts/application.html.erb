@@ -12,20 +12,32 @@
   </head>
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <%= link_to "Home", user_path(current_user), class: "navbar-brand" %>
+  <a class="navbar-brand">Question A Day</a>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <% if logged_in? %>
+        <li class="nav-item active">
+          <%= link_to "Home", user_path(current_user), class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Popular Questions", popular_questions_path, class: "navbar-brand" %>
+          <%= link_to "Tags", tags_path, class: "nav-link" %>
         </li>
-      </ul>
-    </div>
-  </nav>
-  
+        <li class="nav-item">
+          <%= link_to "Popular Questions", popular_questions_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "All Questions", questions_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Log Out", logout_path, class: "nav-link" %>
+        </li>
+      <%end%>
+    </ul>
+  </div>
+</nav>
 
   <body>
+
     <div>
       <% if flash[:message] %>
         <%= flash[:message] %>
