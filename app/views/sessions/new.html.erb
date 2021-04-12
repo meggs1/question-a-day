@@ -1,12 +1,16 @@
-<center><h1>Log In</h1></center>
+<% content_for :header do %>
+    <h1>Log In</h1>
+<% end %>
 
-<%= form_with(model: @user, url: "/login") do |f| %>
-    <div class="form-group">
-        <label>Email:</label>
-        <%=f.email_field :email, class: "form-control"%><br>
-        <label>Password:</label>
-        <%=f.password_field :password, class: "form-control"%><br>
-        <center><%= f.submit "Login", class: "btn btn-primary col-6" %></center>
-    </div>
-<%end%>
-<p>Don't have an account? <%= link_to "Sign Up", signup_path %></p>
+<% content_for :content do %>
+    <%= form_with(model: @user, url: "/login") do |f| %>
+        <div class="form-group">
+            <label>Email:</label>
+            <%=f.email_field :email, class: "form-control"%><br>
+            <label>Password:</label>
+            <%=f.password_field :password, class: "form-control"%><br>
+            <center><%= f.submit "Login", class: "btn btn-primary col-3" %></center>
+        </div>
+    <%end%>
+    <p>Don't have an account? <%= link_to "Sign Up", signup_path %></p>
+<% end %>

@@ -37,19 +37,27 @@
 </nav>
 
   <body>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-2">
+    <div>
+      <% flash.each do |type, msg| %>
+        <div class="alert alert-danger" role="alert">
+          <%= msg %>
         </div>
-          <div class="col-md-7 mx-auto">
-          <div>
-            <% flash.each do |type, msg| %>
-              <div class="alert alert-danger" role="alert">
-                <%= msg %>
-              </div>
-            <% end %>
-          </div>
-          <%= yield %>
+      <% end %>
+    </div>
+    <div class="m-3">
+      <center><%= yield :header %></center>
+      <div class="row mt-4">
+        <div class="col-3">
+        </div>
+        <div class="col-6">
+          <%= yield :content %>
+        </div>
+        <div class="col-3">
+        </div>
+        <%= yield %>
+      </div>
+
+          
         </div>
         <div class="col-md-2">
         </div>

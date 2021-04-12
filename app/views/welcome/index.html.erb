@@ -1,6 +1,9 @@
-<center><h1>Welcome to Question a Day</h1></center>
+<% content_for :header do %>
+<h1>Welcome to Question a Day</h1>
+<%end%>
 <br>
 <br>
+<% content_for :header do %>
 <h3>Today's question is: <%= todays_question.name %></h3>
 <br>
 <br>
@@ -8,11 +11,11 @@
 
 
 
-<%= button_to "Log in", login_url, :method => "get", class: "btn btn-outline-primary col-8" %> <br>
-<%= button_to "Sign up", signup_url, :method => "get", class: "btn btn-outline-primary col-8" %> <br>
-<%= button_to "Log in with Google", '/auth/google_oauth2', class: "btn btn-outline-primary col-8" %></center>
+<%= button_to "Log in", login_url, :method => "get", class: "btn btn-outline-primary col-3" %> <br>
+<%= button_to "Sign up", signup_url, :method => "get", class: "btn btn-outline-primary col-3" %> <br>
+<%= button_to "Log in with Google", '/auth/google_oauth2', class: "btn btn-outline-primary col-3" %></center>
 
-
+<%end%>
 
 
 
