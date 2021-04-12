@@ -9,7 +9,7 @@ class AnswersController < ApplicationController
     
     def create
        @answer = current_user.answers.build(answer_params)
-        if @answer.valid?
+        if @answer.save
             redirect_to answer_path(@answer)
         else
             render :new

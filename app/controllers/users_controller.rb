@@ -16,8 +16,9 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find_by(params[:id])
-        todays_question = helpers.todays_question
-        @user_answer = todays_question.answers.find_by(user_id: current_user.id)
+        # @todays_question = Question.todays_question
+        @user_answer = helpers.todays_question.answers.find_by(user_id: current_user.id)
+        # @top_questions = Question.most_answered
     end
 
     private
