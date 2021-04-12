@@ -1,9 +1,15 @@
-<% @tags.each do |tag| %>
-    <ul>
-        <li><%=link_to "#{tag.name}", tag_path(tag) %></li>
-    </ul>
+<% content_for :header do %>
+    <h1>Tags</h1>
 <%end%>
 
-<% if current_user.admin %>
-    <%= link_to "Add a New Tag", new_tag_path %>
+<% content_for :content do %>
+    <% @tags.each do |tag| %>
+        <ul>
+            <li><%=link_to "#{tag.name}", tag_path(tag) %></li>
+        </ul>
+    <%end%>
+
+    <% if current_user.admin %>
+        <%= link_to "Add a New Tag", new_tag_path %>
+    <%end%>
 <%end%>

@@ -1,14 +1,18 @@
-<h1><%= @tag.name %></h1>
-<% @questions.each do |question| %>
-    <ul>
-    <li><%= link_to "#{question.name}", question_path(question) %></li>
-    </ul>
-<% end %>
+<% content_for :header do %>
+    <h1><%= @tag.name %></h1>
+<%end%>
 
-<br>
-<%= link_to "All Tags", tags_path %>
-
-<% if current_user.admin %>
-    <%= link_to "Edit Tag", edit_tag_path(@tag) %>
-    <%= link_to "Delete Tag", tag_path(@tag), method: :delete %><br>
+<% content_for :content do %>
+    <% @questions.each do |question| %>
+        <ul>
+        <li><%= link_to "#{question.name}", question_path(question) %></li>
+        </ul>
+    <% end %>
+    <br>
+    <% if current_user.admin %>
+        <%= link_to "Edit Tag", edit_tag_path(@tag) %>
+        <%= link_to "Delete Tag", tag_path(@tag), method: :delete %><br>
+    <%end%>
+    <br>
+    <center><%= button_to 'All Tags', tags_path, :method => "get", class: "btn btn-outline-primary col-4"%></center>
 <%end%>
