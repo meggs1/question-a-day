@@ -1,21 +1,26 @@
-<h1><%= @question.name %></h1>
-<label> Tags: </label>
-<% @question.tags.each do |tag| %>
-    <%= link_to "#{tag.name}", tag_path(tag) %>
-<%end%><br>
-
-<% if @user_answer %>
-    <p>You have already answered this question, you wrote: </p>
-    <%= "#{@user_answer.content}" %><br>
-    <%= link_to "Change Answer", edit_answer_path(@user_answer) %>
-
-<%else%>
-    <%= link_to "Answer todays question", new_question_answer_path(@question)%>
+<% content_for :header do %>
+    <h1><%= @question.name %></h1>
 <%end%>
-<br>
 
-<%= link_to 'All Answers', question_answers_path(@question) %><br>
+<% content_for :content do %>
+    <% if !@question.tags.empty? %>
+        <label> Tags: </label>
+        <% @question.tags.each do |tag| %>
+            <%= link_to "#{tag.name}", tag_path(tag) %>
+        <%end%>
+    <%end%>
+    <br>
+    <% if @user_answer %>
+        <h4>You have already answered this question, you wrote: </h4>
+        <h5><%= "#{@user_answer.content}" %></h5><br>
+        <%= button_to "Change your answer", edit_answer_path(@user_answer), :method => "get", class: "btn btn-outline-primary" %>
+    <%else%>
+        <%= button_to "Answer todays question", new_question_answer_path(@question), :method => "get", class: "btn btn-outline-primary"%>
+    <%end%>
+    <br>
+    <%= button_to 'How others answered', question_answers_path(@question), :method => "get", class: "btn btn-outline-primary"%><br>
 
-<% if current_user.admin %>
-    <%= link_to "Edit Question", edit_question_path(@question) %>
+    <% if current_user.admin %>
+        <%= link_to "Edit Question", edit_question_path(@question) %>
+    <%end%>
 <%end%>
