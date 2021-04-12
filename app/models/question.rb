@@ -6,9 +6,6 @@ class Question < ActiveRecord::Base
     
     validates :name, presence: true, uniqueness: true
 
-    #validates new_question (user can only answer a question they haven't answered yet)
-    #validates who, what, where, when or why
-
     def self.most_answered
         all.joins(:answers).group("question_id").order("count(question_id) desc").limit(5)
     end

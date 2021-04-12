@@ -43,8 +43,10 @@
         </div>
           <div class="col-md-7 mx-auto">
           <div>
-            <% if flash[:message] %>
-              <%= flash[:message] %>
+            <% flash.each do |type, msg| %>
+              <div class="alert alert-danger" role="alert">
+                <%= msg %>
+              </div>
             <% end %>
           </div>
           <%= yield %>
