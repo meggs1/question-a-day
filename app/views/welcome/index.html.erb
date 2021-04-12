@@ -1,12 +1,14 @@
-<h1>Welcome</h1>
+<h1>Welcome to Question a Day</h1>
 
 <% if current_user %>
-<%= link_to "My page", user_path(current_user) %>
+    <%= link_to "My page", user_path(current_user) %>
 <%else%>
-<%= link_to "Sign up", signup_url %> 
-<%= link_to "Log in", login_url %> 
-<%= button_to "Log In With Google", '/auth/google_oauth2' %>
+    <%= button_to "Log in", login_url, class: "btn btn-outline-primary col-8" %> <br>
+    <%= button_to "Sign up", signup_url, class: "btn btn-outline-primary col-8" %> <br>
+    <%= button_to "Sign Up with Google", '/auth/google_oauth2', class: "btn btn-outline-primary col-8" %>
 <% end %>
+
+
 
 
 
