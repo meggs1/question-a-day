@@ -19,12 +19,12 @@ class Question < ActiveRecord::Base
         questions[(date - 1) % questions.size]
     end
     
-    def is_answered?
-        if self.answers.blank? || self.answers.nil?
-            false
-        else
-            true
-        end
-    end
+    # def is_answered?
+    #     if self.answers.blank? || self.answers.nil?
+    #         false
+    #     else
+    #         true
+    #     end
+    # end
 
 end
