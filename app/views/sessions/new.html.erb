@@ -1,4 +1,4 @@
-<h1>Log In</h1>
+<center><h1>Log In</h1></center>
 
 <%= form_with(model: @user, url: "/login") do |f| %>
     <div class="form-group">
@@ -6,7 +6,7 @@
         <%=f.email_field :email, class: "form-control"%><br>
         <label>Password:</label>
         <%=f.password_field :password, class: "form-control"%><br>
-        <%= f.submit "Login", class: "btn btn-primary btn-block" %>
+        <center><%= f.submit "Login", class: "btn btn-primary col-6" %></center>
     </div>
 <%end%>
 <p>Don't have an account? <%= link_to "Sign Up", signup_path %></p>

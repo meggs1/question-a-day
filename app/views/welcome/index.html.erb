@@ -1,12 +1,14 @@
-<h1>Welcome to Question a Day</h1>
-
+<center><h1>Welcome to Question a Day</h1>
+<br>
+<br>
+<br>
 <% if current_user %>
     <%= link_to "My page", user_path(current_user) %>
 <%else%>
-    <%= button_to "Log in", login_url, class: "btn btn-outline-primary col-8" %> <br>
-    <%= button_to "Sign up", signup_url, class: "btn btn-outline-primary col-8" %> <br>
+    <%= button_to "Log in", login_url, :method => "get", class: "btn btn-outline-primary col-8" %> <br>
+    <%= button_to "Sign up", signup_url, :method => "get", class: "btn btn-outline-primary col-8" %> <br>
     <%= button_to "Sign Up with Google", '/auth/google_oauth2', class: "btn btn-outline-primary col-8" %>
-<% end %>
+<% end %></center>
 
 
 

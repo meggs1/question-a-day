@@ -1,12 +1,12 @@
 class TagsController < ApplicationController
-    before_action :find_tag, only: [:show, :edit, :destroy]
+    before_action :find_tag, only: [:show, :edit, :update, :destroy]
 
     def new
         @tag = Tag.new
     end
 
     def create
-        @tag = Tag.create(tag_params)
+        @tag = Tag.new(tag_params)
         if @tag.save
             redirect_to tag_path(@tag)
         else
@@ -26,8 +26,8 @@ class TagsController < ApplicationController
     end
 
     def update
-        @tag = Tag.update(tag_params)
-        if @tag
+        @tag.update(tag_params)
+        if @tag.valid?
             redirect_to tag_path(@tag)
         else
             render :edit
