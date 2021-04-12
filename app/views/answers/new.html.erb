@@ -1,7 +1,12 @@
-<h1><%= @answer.question.name %></h1>
-<% if !@answer.question.users.include? current_user %>
-    <%= render partial: 'form', locals: {answer: @answer} %>
-<%else%>
-    <p>You've already answered this question </p>
-    <%= link_to "Home", root_path %>
+<% content_for :header do %>
+    <h1><%= @answer.question.name %></h1>
+<%end%>
+
+<% content_for :content do %>
+    <% if !@answer.question.users.include? current_user %>
+        <%= render partial: 'form', locals: {answer: @answer} %>
+    <%else%>
+        <p>You've already answered this question </p>
+        <%= link_to "Home", root_path %>
+    <%end%>
 <%end%>

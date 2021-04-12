@@ -1,6 +1,11 @@
-<h1><%= @question.name%></h1>
-<% @answers.each do |answer| %>
-    "<%= answer.content %>" - <%= answer.user.name %>
-    <br>
+<% content_for :header do %>
+    <h1><%= @question.name %></h1>
+<%end%>
+
+<% content_for :content do %>
+    <% @answers.each do |answer| %>
+        "<%= answer.content %>" - <%= answer.user.name %>
+        <br>
+    <%end%>
 <%end%>
 

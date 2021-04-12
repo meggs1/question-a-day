@@ -1,5 +1,7 @@
-<h1><%= @answer.question.name %></h1>
-<%= render partial: 'form', locals: {answer: @answer} %>
+<% content_for :header do %>
+    <h1><%= @answer.question.name %></h1>
+<%end%>
 
-<%= link_to "All Answers ", question_answers_path(@answer.question.id) %>
-<%= link_to "Delete Answer ", answer_path, method:"delete" %>
+<% content_for :content do %>
+    <%= render partial: 'form', locals: {answer: @answer} %>
+<%end%>

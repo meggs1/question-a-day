@@ -1,7 +1,11 @@
-<h1><%= @answer.question.name %><h1><br>
-<h2><%= @answer.content %></h2>
+<% content_for :header do %>
+    <h1><%= @answer.question.name %><h1><br>
+<%end%>
 
-<%= link_to "Edit Answer ", edit_question_answer_path(@answer.question, @answer) %>
-<%= link_to "Delete Answer ", answer_path, method:"delete" %>
+<% content_for :content do %>
+    <h2><%= @answer.content %></h2>
 
-<%= link_to "All Answers ", question_answers_path(@answer.question.id) %>
+    <center><%= button_to "Edit Answer", edit_question_answer_path(@answer.question, @answer), :method => "get", class: "btn btn-outline-primary col-4" %>
+    <%= button_to "Delete Answer", answer_path, :method => "delete", class: "btn btn-outline-primary col-4" %>
+    <%= button_to "How others answered", question_answers_path(@answer.question.id), :method => "get", class: "btn btn-outline-primary col-4" %></center>
+<%end%>
