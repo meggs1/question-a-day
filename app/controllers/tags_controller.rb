@@ -6,11 +6,11 @@ class TagsController < ApplicationController
     end
 
     def create
-        tag = Tag.create(tag_params)
-        if tag.save
-            redirect_to tag_path(tag)
+        @tag = Tag.create(tag_params)
+        if @tag.save
+            redirect_to tag_path(@tag)
         else
-            redirect_to new_tag_path
+            render :new
         end
     end
 
@@ -26,11 +26,11 @@ class TagsController < ApplicationController
     end
 
     def update
-        tag = Tag.update(tag_params)
-        if tag
-            redirect_to tag_path(tag)
+        @tag = Tag.update(tag_params)
+        if @tag
+            redirect_to tag_path(@tag)
         else
-            redirect_to new_tag_path
+            render :edit
         end
     end
 
