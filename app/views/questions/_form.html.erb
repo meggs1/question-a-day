@@ -1,7 +1,14 @@
 <%= form_for question do |f| %>
-    <%= f.label "Tags:" %><br>
-    <%= f.label :tag %><br>
-    <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) %>
-
-    <%= f.submit %>
+    <div class="form-group">
+        <%= f.label :tags %><br>
+        <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |b| %><br>
+            <div class="form-check form-check-inline">
+                <%= b.check_box(class: "form-check-input") %>
+                <%= b.object.name %>
+            </div>
+            <%end%>
+    </div>
+    <br>
+    <%= f.submit class: "btn btn-primary" %>
 <% end %>
+

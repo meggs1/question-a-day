@@ -1,5 +1,11 @@
-<% @questions.each do |question| %>
-    <ul>
-        <li><%=link_to "#{question.name}", question_path(question) %></li>
-    </ul>
+<% content_for :header do %>
+    <h1>All Questions</h1>
+<%end%>
+
+<% content_for :content do %>
+    <% @questions.each do |question| %>
+        <ul>
+            <li><%=link_to "#{question.name}", question_path(question) %></li>
+        </ul>
+    <%end%>
 <%end%>
