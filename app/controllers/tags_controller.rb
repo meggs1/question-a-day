@@ -7,7 +7,7 @@ class TagsController < ApplicationController
     end
 
     def create
-        @tag = Tag.new(tag_params)
+        @tag = Tag.create(tag_params)
         if @tag.save
             redirect_to tag_path(@tag)
         else
@@ -47,7 +47,7 @@ class TagsController < ApplicationController
     private
         
     def tag_params
-        params.require(:tag).permit(:name)
+        params.require(:tag).permit(:name, question_ids: [])
     end
 
     def find_tag
