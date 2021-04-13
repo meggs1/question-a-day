@@ -13,3 +13,26 @@
  *= require_tree .
  *= require_self
  */
+ $primary: #4b5668;
+ $light: #e0cfc2;
+ $danger: #bf6a49;
+
+ @import "bootstrap";
+
+ body {
+    background: #f6f4f2;
+  }
+
+  h1, h2, h3, h4 {
+      color: #dda882;
+  }
+
+  h5 {
+    color: #4b5668;
+  }
+
+  a {
+    color: #4b5668;
+  }
+
+

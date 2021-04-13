@@ -12,29 +12,28 @@
   </head>
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <!-- <a class="navbar-brand">Question A Day</a> -->
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <% if logged_in? %>
-        <li class="nav-item active">
-          <%= link_to "Today's Question", user_path(current_user), class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Tags", tags_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Popular Questions", popular_questions_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "All Questions", questions_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Log Out", logout_path, class: "nav-link" %>
-        </li>
-      <%end%>
-    </ul>
-  </div>
-</nav>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <% if logged_in? %>
+          <li class="nav-item active">
+            <%= link_to "Today's Question", user_path(current_user), class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Tags", tags_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Popular Questions", popular_questions_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "All Questions", questions_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Log Out", logout_path, class: "nav-link" %>
+          </li>
+        <%end%>
+      </ul>
+    </div>
+  </nav>
 
   <body>
     <div>
@@ -44,6 +43,7 @@
         </div>
       <% end %>
     </div>
+
     <div class="m-3">
       <center><%= yield :header %></center>
       <div class="row mt-4">
@@ -56,14 +56,6 @@
         </div>
         <%= yield %>
       </div>
-
-          
-        </div>
-        <div class="col-md-2">
-        </div>
-      </div>
     </div>
-
-
   </body>
 </html>

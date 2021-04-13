@@ -1,5 +1,6 @@
 <% if object.errors.any? %>
   <div class="alert alert-danger" role="alert">
+    <h5>Error</h5>
     <ul>
     <% object.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>

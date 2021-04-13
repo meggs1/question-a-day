@@ -3,8 +3,9 @@
 <%end%>
 
 <% content_for :content do %>
-    <h2><%= @answer.content %></h2>
-
+    <h5>You said: <%= @answer.content %></h5>
+    <br>
+    <br>
     <center><%= button_to "Edit Answer", edit_question_answer_path(@answer.question, @answer), :method => "get", class: "btn btn-outline-primary col-4" %>
     <%= button_to "Delete Answer", answer_path, :method => "delete", class: "btn btn-outline-primary col-4" %>
     <%= button_to "How others answered", question_answers_path(@answer.question.id), :method => "get", class: "btn btn-outline-primary col-4" %></center>
