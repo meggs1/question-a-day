@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 
     def self.from_omniauth(auth)
         self.find_or_create_by(provider: auth['provider'], uid: auth['uid']) do |u|
-            u.name = auth['info']['name']
+            u.name = auth['info']['first_name']
             u.email = auth['info']['email']
             u.password = SecureRandom.hex(20)
         end
