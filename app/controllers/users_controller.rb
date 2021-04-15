@@ -8,14 +8,14 @@ class UsersController < ApplicationController
         @user = User.create(user_params)
         if @user.save
             session[:user_id] = @user.id
-            redirect_to user_path(@user)
+            redirect_to todays_question_path
         else
             render :new
         end
     end
 
     def show
-        @user = User.find_by(params[:id])
+        @user = current_user
     end
 
     private
