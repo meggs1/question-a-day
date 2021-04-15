@@ -16,7 +16,6 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find_by(params[:id])
-        @user_answer = helpers.todays_question.answers.find_by(user_id: current_user.id)
     end
 
     private

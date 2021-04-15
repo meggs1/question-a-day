@@ -16,7 +16,7 @@
         <h5><%= "#{@user_answer.content}" %></h5><br>
         <%= button_to "Change your answer", edit_answer_path(@user_answer), :method => "get", class: "btn btn-outline-primary col-4" %>
     <%else%>
-        <%= button_to "Answer todays question", new_question_answer_path(@question), :method => "get", class: "btn btn-outline-primary col-4"%>
+        <%= button_to "Answer Question", new_question_answer_path(@question), :method => "get", class: "btn btn-outline-primary col-4"%>
     <%end%>
     <br>
     <%= button_to 'How others answered', question_answers_path(@question), :method => "get", class: "btn btn-outline-primary col-4"%><br>

@@ -23,6 +23,10 @@ class QuestionsController < ApplicationController
         @popular_questions = Question.most_answered
     end
 
+    def todays_question
+        @user_answer = helpers.todays_question.answers.find_by(user_id: current_user.id)
+    end
+
     private
 
     def question_params

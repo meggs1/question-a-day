@@ -3,12 +3,12 @@
 <% end %>
 
 <% content_for :content do %>
-    <% if todays_question.users.include? current_user %>
-        <h5>You've already answered this question! You said: </h5>
-        <%= @user_answer.content %><br><br>
-        <center><%= button_to "Edit answer", edit_question_answer_path(todays_question, @user_answer), :method => "get", class: "btn btn-outline-primary"%></center>
-    <%else%>
-        <br>
-        <center><%= button_to "Answer todays question", new_question_answer_path(todays_question), :method => "get", class: "btn btn-outline-primary col-4"%></center>
-    <% end %>
+    <h3>Your answers</h3>
+    <% @user.answers.each do |answer| %>
+        <ul>
+            <li>Q: <%= link_to answer.question.name, answer_path(answer) %><br>
+                A: <%= answer.content %>
+            </li>
+        </ul>
+    <% end %> 
 <% end %>
