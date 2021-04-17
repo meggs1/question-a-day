@@ -12,14 +12,14 @@
     <br>
     <br>
     <% if @user_answer %>
-        <h4>You have already answered this question, you wrote: </h4>
+        <h4>You've already answered this question, you wrote: </h4>
         <h5><%= "#{@user_answer.content}" %></h5><br>
-        <%= button_to "Change your answer", edit_answer_path(@user_answer), :method => "get", class: "btn btn-outline-primary col-4" %>
+        <center><%= button_to "Change your answer", edit_answer_path(@user_answer), :method => "get", class: "btn btn-outline-primary col-4" %></center>
     <%else%>
-        <%= button_to "Answer Question", new_question_answer_path(@question), :method => "get", class: "btn btn-outline-primary col-4"%>
+        <center><%= button_to "Answer Question", new_question_answer_path(@question), :method => "get", class: "btn btn-outline-primary col-4"%></center>
     <%end%>
     <br>
-    <%= button_to 'How others answered', question_answers_path(@question), :method => "get", class: "btn btn-outline-primary col-4"%><br>
+    <center><%= button_to 'How others answered', question_answers_path(@question), :method => "get", class: "btn btn-outline-primary col-4"%><br></center>
 
     <% if current_user.admin %>
         <%= link_to "Edit Question", edit_question_path(@question) %>

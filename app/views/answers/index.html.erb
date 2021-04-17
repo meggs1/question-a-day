@@ -4,7 +4,7 @@
 
 <% content_for :content do %>
     <% @answers.each do |answer| %>
-        "<%= answer.content %>" - <%= answer.user.name %>
+        "<%= answer.content %>" - <%= answer.user.name %><br>
         <br>
     <%end%>
 <%end%>

@@ -1,5 +1,6 @@
 class QuestionsController < ApplicationController
     before_action :find_question, only: [:show, :edit, :update]
+    
     def index
         @questions = Question.all
     end
