@@ -1,24 +1,10 @@
-# README
+This application promts users with an answer every day. It gives users the option to see how other's answered each question. Users can also browse through question tags and see the app's most popular questions.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+To get started:
+1. Clone this repo and `$ bundle install` to bundle gems.
 
-Things you may want to cover:
+2. Migrate database. `$ rails db:migrate`
 
-* Ruby version
+3. Add questions and admin make sure to change your admin credentials **before** seeding. `$ rails db:seed`
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+4. Run server `$ rails s`
