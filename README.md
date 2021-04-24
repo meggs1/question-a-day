@@ -5,6 +5,6 @@ To get started:
 
 2. Migrate database. `$ rails db:migrate`
 
-3. Add questions and admin make sure to change your admin credentials **before** seeding. `$ rails db:seed`
+3. Add questions and admin make sure to change your admin credentials **before** seeding. Do this in app/db/seeds.rb `$ rails db:seed`
 
 4. Run server `$ rails s`
