@@ -3,6 +3,18 @@
 <%end%>
 
 <% content_for :content do %>
-    <%= render partial: 'form', locals: {question: @question} %>
+    <%= form_for @question do |f| %>
+        <div class="form-group">
+            <%= f.label :tags %><br>
+            <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |b| %><br>
+                <div class="form-check form-check-inline">
+                    <%= b.check_box(class: "form-check-input") %>
+                    <%= b.object.name %>
+                </div>
+            <%end%>
+            <br>
+            <%= f.submit class: "btn btn-primary" %>
+        </div>
+    <% end %>
 <%end%>
 
