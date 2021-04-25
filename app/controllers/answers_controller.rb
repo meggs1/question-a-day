@@ -1,6 +1,8 @@
 class AnswersController < ApplicationController
     before_action :find_answer, only: [:show, :edit, :update, :destroy]
     before_action :find_question, only: [:new, :index, :edit]
+    before_action :check_current_user, only: [:show, :edit, :update, :destroy]
+
     def new
         if params[:question_id]
             @answer = @question.answers.build
@@ -30,9 +32,6 @@ class AnswersController < ApplicationController
     end
 
     def edit
-        if params[:question_id]
-            @answer = @question.answers.find_by(id: params[:id])
-        end
     end
 
     def update
@@ -60,5 +59,12 @@ class AnswersController < ApplicationController
 
     def find_question
         @question = Question.find_by_id(params[:question_id])
+    end
+
+    def check_current_user
+        if @answer.user != current_user
+            flash[:danger] = "You don't have access to view that!"
+            redirect_to root_path
+        end
     end
 end
