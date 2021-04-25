@@ -7,6 +7,7 @@ class QuestionsController < ApplicationController
 
     def show
         @user_answer = @question.answers.find_by(user_id: current_user.id)
+        @tags = @question.tags.all
     end
 
     def edit

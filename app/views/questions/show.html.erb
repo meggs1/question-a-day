@@ -3,17 +3,17 @@
 <%end%>
 
 <% content_for :content do %>
-    <% if !@question.tags.empty? %>
+    <% if !@tags.empty? %>
         <label> Tags: </label>
-        <% @question.tags.each do |tag| %>
+        <% @tags.each do |tag| %>
             <%= link_to "#{tag.name}", tag_path(tag) %>
         <%end%>
     <%end%>
     <br>
     <br>
-    <% if @user_answer %>
+    <% if user_answered?(@question) %>
         <h4>You've already answered this question, you wrote: </h4>
-        <h5><%= "#{@user_answer.content}" %></h5><br>
+        <h5><%= "#{user_answer(@question)}" %></h5><br>
         <center><%= button_to "Change your answer", edit_answer_path(@user_answer), :method => "get", class: "btn btn-outline-primary col-4" %></center>
     <%else%>
         <center><%= button_to "Answer Question", new_question_answer_path(@question), :method => "get", class: "btn btn-outline-primary col-4"%></center>

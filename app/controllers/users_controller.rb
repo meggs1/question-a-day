@@ -16,6 +16,7 @@ class UsersController < ApplicationController
 
     def show
         @user = current_user
+        @answers = @user.answers.all
     end
 
     private

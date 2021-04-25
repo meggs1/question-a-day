@@ -4,7 +4,7 @@
 
 <% content_for :content do %>
     <h3>Your answers</h3>
-    <% @user.answers.each do |answer| %>
+    <% @answers.each do |answer| %>
         <ul>
             <li>Q: <%= link_to answer.question.name, answer_path(answer) %><br>
                 A: <%= answer.content %>
