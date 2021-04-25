@@ -13,8 +13,8 @@
     <br>
     <% if user_answered?(@question) %>
         <h4>You've already answered this question, you wrote: </h4>
-        <h5><%= "#{user_answer(@question)}" %></h5><br>
-        <center><%= button_to "Change your answer", edit_answer_path(@user_answer), :method => "get", class: "btn btn-outline-primary col-4" %></center>
+        <h5><%= "#{user_answer(@question).content}" %></h5><br>
+        <center><%= button_to "Change your answer", edit_answer_path(user_answer(@question)), :method => "get", class: "btn btn-outline-primary col-4" %></center>
     <%else%>
         <center><%= button_to "Answer Question", new_question_answer_path(@question), :method => "get", class: "btn btn-outline-primary col-4"%></center>
     <%end%>

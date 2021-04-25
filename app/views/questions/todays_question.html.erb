@@ -5,8 +5,8 @@
 <% content_for :content do %>
     <% if user_answered?(todays_question) %>
         <h5>You've already answered this question! You said: </h5>
-        <%= user_answer(todays_question) %><br><br>
-        <center><%= button_to "Edit answer", edit_question_answer_path(todays_question, @user_answer), :method => "get", class: "btn btn-outline-primary"%></center>
+        <%= user_answer(todays_question).content %><br><br>
+        <center><%= button_to "Edit answer", edit_question_answer_path(todays_question, user_answer(todays_question)), :method => "get", class: "btn btn-outline-primary"%></center>
     <%else%>
         <br>
         <center><%= button_to "Answer todays question", new_question_answer_path(todays_question), :method => "get", class: "btn btn-outline-primary col-4"%></center>

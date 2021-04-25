@@ -6,7 +6,6 @@ class QuestionsController < ApplicationController
     end
 
     def show
-        @user_answer = @question.answers.find_by(user_id: current_user.id)
         @tags = @question.tags.all
     end
 
@@ -26,7 +25,6 @@ class QuestionsController < ApplicationController
     end
 
     def todays_question
-        @user_answer = helpers.todays_question.answers.find_by(user_id: current_user.id)
     end
 
     private

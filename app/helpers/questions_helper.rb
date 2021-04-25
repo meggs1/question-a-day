@@ -14,6 +14,6 @@ module QuestionsHelper
     end
 
     def user_answer(question)
-        question.answers.find_by(user_id: current_user.id).content
+        question.answers.find_by(user_id: current_user.id)
     end
 end
