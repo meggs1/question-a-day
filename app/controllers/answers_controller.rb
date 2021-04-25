@@ -63,8 +63,7 @@ class AnswersController < ApplicationController
 
     def check_current_user
         if @answer.user != current_user
-            flash[:danger] = "You don't have access to view that!"
-            redirect_to root_path
+            invalid_user
         end
     end
 end

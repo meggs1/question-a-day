@@ -56,8 +56,7 @@ class TagsController < ApplicationController
 
     def check_admin
         if !current_user.admin
-            flash[:danger] = "You don't have access to view that!"
-            redirect_to user_path(current_user)
+            invalid_user
         end
     end
 end
