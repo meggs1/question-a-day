@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     user = User.find_by_email(params[:user][:email])
     if user && user.authenticate(params[:user][:password])
       session[:user_id] = user.id
-      redirect_to todays_question_path
+      redirect_to root_path
     else
       redirect_to '/login'
     end
@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
     @user = User.from_omniauth(auth)
     @user.save
     session[:user_id] = @user.id
-    redirect_to todays_question_path
+    redirect_to root_path
   end
 
   private
