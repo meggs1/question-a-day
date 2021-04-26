@@ -6,11 +6,7 @@ module QuestionsHelper
     end
 
     def user_answered?(question)
-        if user_answer(question)
-            true
-        else
-            false
-        end
+        user_answer(question) ? true : false
     end
 
     def user_answer(question)

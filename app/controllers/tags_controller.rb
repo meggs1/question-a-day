@@ -35,11 +35,11 @@ class TagsController < ApplicationController
     end
 
     def destroy
-        if @tag
-          @tag.destroy
-          redirect_to tags_path
+        if @tag.destroy
+            flash[:notice] = 'Successfully Deleted Tag'
+            redirect_to tags_path
         else
-          redirect_to tag_path(@tag)
+            redirect_to tag_path(@tag)
         end
     end
 
@@ -54,8 +54,6 @@ class TagsController < ApplicationController
     end
 
     def check_admin
-        if !current_user.admin
-            invalid_user
-        end
+        current_user.admin ? true : invalid_user
     end
 end
