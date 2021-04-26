@@ -6,9 +6,11 @@
     <% if user_answered?(todays_question) %>
         <h5>You've already answered this question! You said: </h5>
         <%= user_answer(todays_question).content %><br><br>
-        <center><%= button_to "Edit answer", edit_question_answer_path(todays_question, user_answer(todays_question)), :method => "get", class: "btn btn-outline-primary"%></center>
+        <br>
+        <center><%= button_to "Edit answer", edit_question_answer_path(todays_question, user_answer(todays_question)), :method => "get", class: "btn btn-outline-primary col-4"%></center>
     <%else%>
         <br>
         <center><%= button_to "Answer todays question", new_question_answer_path(todays_question), :method => "get", class: "btn btn-outline-primary col-4"%></center>
     <%end%>
+<center><%= button_to 'How others answered', question_answers_path(todays_question), :method => "get", class: "btn btn-outline-primary col-4"%><br></center>
 <%end%>

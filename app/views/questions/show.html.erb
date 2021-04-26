@@ -18,7 +18,7 @@
     <%else%>
         <center><%= button_to "Answer Question", new_question_answer_path(@question), :method => "get", class: "btn btn-outline-primary col-4"%></center>
     <%end%>
-    <br>
+    
     <center><%= button_to 'How others answered', question_answers_path(@question), :method => "get", class: "btn btn-outline-primary col-4"%><br></center>
 
     <% if current_user.admin %>

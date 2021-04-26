@@ -4,7 +4,8 @@ class AnswersController < ApplicationController
     before_action :check_current_user, only: [:show, :edit, :update, :destroy]
 
     def new
-        if @question.users.include? current_user
+        if @question.users.include?(current_user)
+            flash[:warning] = 'You have already answered this question.'
             redirect_to question_path(@question)
         else
             @answer = @question.answers.build
