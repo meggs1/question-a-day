@@ -4,9 +4,7 @@ class AnswersController < ApplicationController
     before_action :check_current_user, only: [:show, :edit, :update, :destroy]
 
     def new
-        if params[:question_id]
-            @answer = @question.answers.build
-        end
+        @answer = @question.answers.build
     end
     
     def create
@@ -19,12 +17,10 @@ class AnswersController < ApplicationController
     end
 
     def index
-        if params[:question_id]
-            if @question.nil?
-            redirect_to root_path
-            else
-                @answers = @question.answers.all
-            end
+        if @question.nil?
+            record_not_found
+        else
+            @answers = @question.answers.all
         end
     end
 
