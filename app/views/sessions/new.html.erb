@@ -3,7 +3,7 @@
 <% end %>
 
 <% content_for :content do %>
-    <%= form_with(model: @user, url: "/login") do |f| %>
+    <%= form_with(scope: :user, url: "/login") do |f| %>
         <div class="form-group">
             <label>Email:</label>
             <%=f.email_field :email, class: "form-control"%><br>
