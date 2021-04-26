@@ -27,8 +27,7 @@ class TagsController < ApplicationController
     end
 
     def update
-        @tag.update(tag_params)
-        if @tag.valid?
+        if @tag.update(tag_params)
             redirect_to tag_path(@tag)
         else
             render :edit

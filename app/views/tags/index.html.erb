@@ -9,7 +9,7 @@
         </ul>
     <%end%>
 
-    <% if current_user.admin %>
+    <% if is_admin?(current_user) %>
         <%= link_to "Add a New Tag", new_tag_path %>
     <%end%>
 <%end%>

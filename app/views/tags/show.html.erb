@@ -9,7 +9,7 @@
         </ul>
     <% end %>
     <br>
-    <% if current_user.admin %>
+    <% if is_admin?(current_user) %>
         <%= link_to "Edit Tag", edit_tag_path(@tag) %>
         <%= link_to "Delete Tag", tag_path(@tag), method: :delete %><br>
     <%end%>
