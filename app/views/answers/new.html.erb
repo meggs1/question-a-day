@@ -3,10 +3,5 @@
 <%end%>
 
 <% content_for :content do %>
-    <% if !user_answered?(@question) %>
-        <%= render partial: 'form', locals: {answer: @answer} %>
-    <%else%>
-        <h4>You've already answered this question, you wrote: </h4>
-        <h5><%= "#{user_answer(@question).content}" %></h5><br>
-    <%end%>
+    <%= render partial: 'form', locals: {answer: @answer} %>
 <%end%>

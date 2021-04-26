@@ -4,7 +4,11 @@ class AnswersController < ApplicationController
     before_action :check_current_user, only: [:show, :edit, :update, :destroy]
 
     def new
-        @answer = @question.answers.build
+        if @question.users.include? current_user
+            redirect_to question_path(@question)
+        else
+            @answer = @question.answers.build
+        end
     end
     
     def create
