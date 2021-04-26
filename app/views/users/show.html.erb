@@ -6,7 +6,7 @@
     <h3>Your answers</h3>
     <% @answers.each do |answer| %>
         <ul>
-            <li>Q: <%= link_to answer.question.name, answer_path(answer) %><br>
+            <li>Q: <%= link_to question_name(answer), answer_path(answer) %><br>
                 A: <%= answer.content %>
             </li>
         </ul>

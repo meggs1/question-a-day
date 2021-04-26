@@ -3,10 +3,10 @@
 <%end%>
 
 <% content_for :content do %>
-    <% if !@answer.question.users.include? current_user %>
+    <% if !user_answered?(@question) %>
         <%= render partial: 'form', locals: {answer: @answer} %>
     <%else%>
-        <p>You've already answered this question </p>
-        <%= link_to "Home", root_path %>
+        <h4>You've already answered this question, you wrote: </h4>
+        <h5><%= "#{user_answer(@question).content}" %></h5><br>
     <%end%>
 <%end%>
