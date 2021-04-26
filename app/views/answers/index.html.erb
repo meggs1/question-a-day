@@ -7,5 +7,6 @@
         "<%= answer.content %>" - <%= answer.user.name %><br>
         <br>
     <%end%>
+    <center><%= button_to 'Back to Question', question_path(@question), :method => "get", class: "btn btn-outline-primary col-4"%><br></center>
 <%end%>
 
