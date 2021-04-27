@@ -25,6 +25,7 @@ class QuestionsController < ApplicationController
     end
 
     def todays_question
+        @todays_question = Question.todays_question
     end
 
     private

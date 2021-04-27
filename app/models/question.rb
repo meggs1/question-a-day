@@ -5,4 +5,10 @@ class Question < ActiveRecord::Base
     has_many :tags, through: :question_tags
 
     scope :most_answered, -> {self.joins(:answers).group("question_id").order("count(question_id) desc").limit(5)}
+
+    def self.todays_question
+        questions = Question.all
+        date = Date.today.yday
+        questions[(date - 1) % questions.size]
+    end
 end
