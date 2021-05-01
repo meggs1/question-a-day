@@ -27,6 +27,6 @@ get_questions
 Question.create(name: "What parts of my life don’t reflect who I am?")
 
 # # only admin can create and edit tags
-# User.create(name: "admin", email: "admin@test.com", password: "password", admin: true)
+User.create(name: "admin", email: "admin@test.com", password: "password", admin: true)
 
 
