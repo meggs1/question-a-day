@@ -2,6 +2,7 @@ class AnswersController < ApplicationController
     before_action :find_answer, only: [:show, :edit, :update, :destroy]
     before_action :find_question, only: [:new, :index, :edit]
     before_action :check_current_user, only: [:show, :edit, :update, :destroy]
+    before_action :find_user, only: [:index]
 
     def new
         if @question.users.include?(current_user)
@@ -60,6 +61,10 @@ class AnswersController < ApplicationController
 
     def find_question
         @question = Question.find_by_id(params[:question_id])
+    end
+
+    def find_user
+        @user = User.find_by_id(params[:user_id])
     end
 
     def check_current_user
