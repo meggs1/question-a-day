@@ -4,7 +4,7 @@ class Question < ActiveRecord::Base
     has_many :users, through: :answers
     has_many :tags, through: :question_tags
 
-    scope :most_answered, -> {self.joins(:answers).group("question.id").order("count(user.id) desc").limit(5)}
+    scope :most_answered, -> {self.joins(:answers).group("question_id").order("count(user_id) desc").limit(5)}
 
     def self.todays_question
         questions = Question.all
