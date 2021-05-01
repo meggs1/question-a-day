@@ -5,9 +5,8 @@ class Question < ActiveRecord::Base
     has_many :tags, through: :question_tags
 
     # scope :most_answered, -> {self.joins(:answers).group("question_id").order("count(user_id) desc").limit(5)}
-    scope :most_answered, -> {    self.joins(:answers).select("question_id").group("answers.question_id").order("COUNT(user_id) DESC").limit(5)}
-
-    def self.todays_question
+    # scope :most_answered, -> {self.joins(:answers).select("question_id").group("answers.question_id").order("COUNT(user_id) DESC").limit(5)}
+    scope :most_answered, -> {self.select("question_id").from('answer').joins(:answers).order("count(answers.user_id) desc").limit(5)}
         questions = Question.all
         date = Date.today.yday
         questions[(date - 1) % questions.size]
